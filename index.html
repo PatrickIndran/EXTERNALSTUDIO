@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXTERNAL/STUDIO™</title>
+    <link href="https://fonts.cdnfonts.com/css/eurostile-extended" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Eurostile Extended', sans-serif;
+        }
+
+        body {
+            background: #242424;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            color: white;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            flex: 1;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+
+        .logo-container {
+            flex: 1;
+            perspective: 1200px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.6s;
+        }
+
+        .main-logo {
+            width: 100%;
+            height: auto;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-style: preserve-3d;
+            will-change: transform;
+            filter: drop-shadow(0 0 30px rgba(255,255,255,0.1));
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            line-height: 1;
+            margin-bottom: 2rem;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            padding: 1.2rem 2.4rem;
+            font-size: 1.1rem;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(600px circle at var(--x) var(--y), 
+                        rgba(255,255,255,0.15), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .services, .about {
+            padding: 8rem 0;
+        }
+
+        .services-grid, .studio-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card, .detail-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.4s ease-out;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 4rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                padding-top: 120px;
+                gap: 3rem;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .services-grid, .studio-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="container">
+        <div class="logo-text">EXTERNAL/STUDIO™</div>
+    </nav>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Creative<br>Digital<br>Studio</h1>
+                <p class="tagline">
+                    Pioneering digital experiences through innovative design 
+                    and cutting-edge technology solutions.
+                </p>
+                <button class="cta-button">View Our Work</button>
+            </div>
+
+            <div class="logo-container">
+                <img src="https://ik.imagekit.io/debrrrocx/Untitled.png?updatedAt=1746462763960" 
+                     alt="Studio Logo" 
+                     class="main-logo">
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Software Development</h3>
+                    <p>Building intuitive tools for creative professionals.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Original Content</h3>
+                    <p>Crafting compelling narratives across digital mediums.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Creative Tools</h3>
+                    <p>Developing innovative solutions for digital creation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="about-content">
+                <p class="about-text">
+                    EXTERNAL/STUDIO™ is an independent creative studio based in Denmark. 
+                    We focus on developing software and original content, with an interest 
+                    in design, storytelling, and digital tools. Our work is in early development, 
+                    and we aim to build things with care, clarity, and purpose.
+                </p>
+                
+                <div class="studio-details">
+                    <div class="detail-card">
+                        <h3>Founded</h3>
+                        <p>2023</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3>Based in</h3>
+                        <p>Copenhagen, DK</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3>Focus</h3>
+                        <p>Software<br>Original Content<br>Digital Tools</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Logo Parallax System
+        const logo = document.querySelector('.main-logo');
+        const activationDistance = 200;
+
+        document.addEventListener('mousemove', (e) => {
+            const rect = logo.getBoundingClientRect();
+            const centerX = rect.left + rect.width/2;
+            const centerY = rect.top + rect.height/2;
+            const deltaX = e.clientX - centerX;
+            const deltaY = e.clientY - centerY;
+            const distance = Math.sqrt(deltaX**2 + deltaY**2);
+
+            if(distance < activationDistance) {
+                const rotateY = (deltaX / rect.width) * 70;
+                const rotateX = -(deltaY / rect.height) * 70;
+                const translateZ = (activationDistance - distance) / 2;
+                
+                logo.style.transform = `
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    translateZ(${translateZ}px)
+                `;
+                
+                logo.style.filter = `
+                    drop-shadow(${-rotateY*2}px ${rotateX*2}px 30px rgba(255,255,255,0.15))
+                    brightness(${1 + (translateZ/100)})
+                `;
+            } else {
+                logo.style.transform = 'translateZ(0)';
+                logo.style.filter = 'drop-shadow(0 0 30px rgba(255,255,255,0.1))';
+            }
+        });
+
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.service-card, .detail-card').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
